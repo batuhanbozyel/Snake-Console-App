@@ -5,11 +5,15 @@
 #include <conio.h>
 #include <Windows.h>
 
+extern constexpr char clear[] = "cls";
+
 #else
 #include <fcntl.h>
 #include <stdlib.h>
 #include <termios.h>
 #include <curses.h>
+
+extern constexpr char clear[] = "clear";
 
 int kbhit(void) {
 

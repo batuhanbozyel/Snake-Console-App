@@ -1,16 +1,11 @@
 #ifndef SNAKE_H
 #define SNAKE_H
+
 #include <vector>
 #include <array>
 #include <string>
 #include <cstdlib>
 #include <iostream>
-
-#ifdef _WIN32
-extern constexpr char clear[] = "cls";
-#else
-extern constexpr char clear[] = "clear";
-#endif
 
 #define SIZE_X 20
 #define SIZE_Y 30
@@ -42,17 +37,13 @@ struct Point {
 	}
 };
 
-enum class Direction { LEFT , RIGHT, UP, DOWN };
+enum class Direction { LEFT, RIGHT, UP, DOWN };
 
 class SnakeGame {
+public:
+	void NewGame();
+	void SetLevel(int);
 private:
-	char map[SIZE_X][SIZE_Y];
-	std::vector<Point> snake;
-	Point fruit;
-	Direction dir = Direction::RIGHT;
-	int score = 0;
-	int level = 5;
-	bool gameOver = false;
 	void SpawnFruit();
 	void SpawnSnake();
 	void ResetMap();
@@ -62,8 +53,13 @@ private:
 	bool isSnake(int, int);
 	bool isTail(int, int);
 	void PrintMap();
-public:
-	void NewGame();
-	void SetLevel(int);
+private:
+	char map[SIZE_X][SIZE_Y];
+	std::vector<Point> snake;
+	Point fruit;
+	Direction dir = Direction::RIGHT;
+	int score = 0;
+	int level = 5;
+	bool gameOver = false;
 };
 #endif

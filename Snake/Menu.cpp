@@ -1,11 +1,8 @@
 #include "Menu.h"
 #include "InputUnix.h"
+
 #include <iostream>
-#ifdef _WIN32
-#define CLEAR system("cls")
-#else
-#define CLEAR system("clear")
-#endif
+
 bool Menu::Move(char DIR)
 {
 	if (DIR == 'w')
@@ -39,7 +36,7 @@ std::string Menu::Choose()
 	char choice;
 	do
 	{
-		CLEAR;
+		system(clear);
 		PrintMenu();
 		choice = _getch();
 	} while (Move(choice));
