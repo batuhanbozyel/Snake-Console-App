@@ -8,7 +8,8 @@ bool Menu::Move(char DIR)
 	if (DIR == 'w')
 	{
 		selectedElement--;
-		selectedElement %= menuElements.size();
+		int size = menuElements.size();
+		selectedElement = (selectedElement % size + size) % size;
 		return true;
 	}
 	else if (DIR == 's')

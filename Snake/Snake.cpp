@@ -80,9 +80,9 @@ void SnakeGame::PrintMap()
 		}
 		screenBuffer << '\n';
 	}
+	screenBuffer << "SCORE: " << score;
 
 	std::cout << screenBuffer.str();
-	std::cout << "SCORE: " << score;
 }
 
 //Time Complexity: O(1)
@@ -198,8 +198,7 @@ bool SnakeGame::isTail(int x, int y)
 //Time Complexity: O(1)
 void SnakeGame::SetLevel(int lvl)
 {
-	if (lvl != 0)
-		level = lvl % 11;
-	else
+	level = lvl % 11;
+	if (level == 0)
 		level = 5;
 }
